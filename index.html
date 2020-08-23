@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+            <span class="comments">##...</span><br/>
+			<span class="comments"># 今天是七夕,</span><br/>
+			<span class="comments"># 我希望用我自己的DIY来博君会心一笑.</span><br/>
+            <span class="comments">##故事开始...</span><br/>
+			i = Boy(<span class="string">"杨绣嘉"</span>);<br/>
+			u = Girl(<span class="string">"孙雪颖"</span>);<br/>
+            i.meet(u)<br/>
+            <span class="comments"># 1999/xx/x: 你好，我叫杨绣嘉。 </span><br/>
+            i.find(u)<br/>
+            <span class="comments"># 2017/11/15:你好，请问你是孙雪颖吗。</span><br/>
+            i.confess(u)<br/>
+            <span class="comments"># 2017/12/23: 你是我女朋友了。</span><br/>
+            i.happy(u)<br/>
+			<span class="comments"># 从此，我的任务就是让你开心。</span><br/>
+            study(u, i)<br/>
+			<span class="comments"># 一起学习。</span><br/>
+            life(u, i)<br/>
+			<span class="comments"># 一起生活。</span><br/>
+            world(u, i)<br/>
+			<span class="comments"># 一起去感受，去面对这个世界的一切。</span><br/>
+            i.marry(u)<br/>
+            <span class="comments"># 2018/6/15:叫老婆。</span><br/>
+            conflict(u, i, sometimes=<span class="keyword">True</span>)<br/>
+			<span class="comments"># 当然，我们之间偶尔也会有摩擦。</span><br/>
+            i.increase_love_with(u) <br/>
+			<span class="comments"># 但是，我们依旧更加相爱。</span><br/>
+            u.increase_love_with(i) <br/>
+			<span class="comments"># 你是我生命中最美好的存在</span><br/>
+			while <span class="keyword">True</span>:<br/>
+			<span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>u = everything<br/>
+			<span class="placeholder"></span><span class="keyword">else</span>:<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>everything = u<br/>
+			<span class="comments"># 你就是一切。</span><br/>
+			i.live_happily_forever_with(u)<br/>
+			<span class="comments"># 5201314，🐱七夕快乐。</span><br/>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					🐱，我们在一起已经
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					爱你一生一世。<br/>
+					<div class="signature">- 杨绣嘉| Karl Yang</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		Copyright © 2020 <a href='http://xiujiayang.com'>xiujiayang.com</a> 
+	</div>
+</div>
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+	together.setFullYear(2017, 12, 23);
+	together.setHours(15);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+</script>
+</body>
+</html>
